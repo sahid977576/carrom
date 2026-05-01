@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrom Pool - How to Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            color: #ECF0F1;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(22, 33, 62, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #FF6B35, #F7C948);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #95A5A6;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #FF6B35;
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid rgba(255,107,53,0.3);
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #F7C948;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        .rule-box {
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #FF6B35;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .disk-demo {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0 5px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .disk-white { background: #f5f5f5; }
+        .disk-black { background: #2c3e50; }
+        .disk-queen { background: #e74c3c; }
+        .disk-striker { background: #3498db; }
+        ul { margin-left: 20px; }
+        li { margin: 10px 0; }
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .control-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .control-card i {
+            font-size: 2rem;
+            color: #FF6B35;
+            margin-bottom: 10px;
+        }
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .scoring-table th, .scoring-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .scoring-table th {
+            color: #FF6B35;
+            font-weight: 600;
+        }
+        .tip {
+            background: rgba(247, 201, 72, 0.1);
+            border: 1px solid rgba(247, 201, 72, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .tip::before {
+            content: "💡 Tip: ";
+            color: #F7C948;
+            font-weight: 600;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #FF6B35, #E55A2B);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 How to Play Carrom Pool</h1>
+        <p class="subtitle">Master the board with these rules and strategies</p>
+
+        <h2>📋 Game Objective</h2>
+        <div class="rule-box">
+            <p>Pocket all your colored disks <span class="disk-demo disk-white"></span> (White) or <span class="disk-demo disk-black"></span> (Black) before your opponent does. The player who pockets all their disks AND covers the Queen wins the game!</p>
+        </div>
+
+        <h2>🎮 Controls</h2>
+        <div class="controls-grid">
+            <div class="control-card">
+                <div style="font-size: 2rem;">🖱️</div>
+                <h3>Aim</h3>
+                <p>Drag from striker to aim direction</p>
+            </div>
+            <div class="control-card">
+                <div style="font-size: 2rem;">⚡</div>
+                <h3>Power</h3>
+                <p>Drag further for more power</p>
+            </div>
+            <div class="control-card">
+                <div style="font-size: 2rem;">🎯</div>
+                <h3>Strike</h3>
+                <p>Release to shoot or press SPACE</p>
+            </div>
+            <div class="control-card">
+                <div style="font-size: 2rem;">⏱️</div>
+                <h3>Timer</h3>
+                <p>You have 30 seconds per turn</p>
+            </div>
+        </div>
+
+        <h2>👑 The Queen (Red Disk)</h2>
+        <div class="rule-box">
+            <p>The <span class="disk-demo disk-queen"></span> <strong>Queen</strong> is the most important disk:</p>
+            <ul>
+                <li>Pocket the Queen to gain 3 bonus points</li>
+                <li>After pocketing the Queen, you MUST pocket one of your own disks in the same or next turn to "cover" it</li>
+                <li>If you fail to cover the Queen, it returns to the center of the board</li>
+                <li>You cannot win the game without covering the Queen (unless opponent has no disks left)</li>
+            </ul>
+        </div>
+
+        <h2>⚠️ Fouls (Penalties)</h2>
+        <div class="rule-box">
+            <p>Committing a foul results in:</p>
+            <ul>
+                <li><strong>Striker Pocketed</strong> <span class="disk-demo disk-striker"></span> - Your turn ends and one of your pocketed disks returns to the board</li>
+                <li><strong>Opponent's Disk Pocketed</strong> - Your turn ends and the disk is returned to the board</li>
+                <li><strong>Queen Pocketed Without Cover</strong> - Queen returns to center</li>
+                <li><strong>No Disk Hit</strong> - Your turn ends (striker must hit at least one disk)</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Scoring System</h2>
+        <table class="scoring-table">
+            <tr>
+                <th>Action</th>
+                <th>Points</th>
+                <th>Effect</th>
+            </tr>
+            <tr>
+                <td>Pocket your disk <span class="disk-demo disk-white"></span></td>
+                <td>+1</td>
+                <td>Continue turn</td>
+            </tr>
+            <tr>
+                <td>Pocket Queen <span class="disk-demo disk-queen"></span></td>
+                <td>+3</td>
+                <td>Must cover in next shot</td>
+            </tr>
+            <tr>
+                <td>Cover Queen</td>
+                <td>Queen secured</td>
+                <td>Can win game now</td>
+            </tr>
+            <tr>
+                <td>Foul committed</td>
+                <td>-1 (disk returned)</td>
+                <td>Turn ends</td>
+            </tr>
+        </table>
+
+        <h2>🏆 Winning Conditions</h2>
+        <div class="rule-box">
+            <p>You win the game when:</p>
+            <ul>
+                <li>All your colored disks are pocketed</li>
+                <li>The Queen has been covered</li>
+                <li>You have more points than your opponent</li>
+            </ul>
+        </div>
+
+        <h2>💡 Strategy Tips</h2>
+        <div class="tip">Aim for the Queen early when you have a clear shot - the 3 bonus points can be a game-changer!</div>
+        <div class="tip">Use the walls to bounce your striker and hit disks in difficult positions.</div>
+        <div class="tip">Don't use maximum power - controlled shots are more accurate and less likely to result in fouls.</div>
+        <div class="tip">If you can't pocket your own disk, try to break up clusters to set up your next turn.</div>
+        <div class="tip">Watch the timer! You have 30 seconds per turn - plan your shot quickly.</div>
+
+        <h2>🎮 Game Modes</h2>
+        <h3>Online Play</h3>
+        <ul>
+            <li><strong>Quick Match</strong> - Get matched with a random player instantly</li>
+            <li><strong>Create Room</strong> - Create a private room and share the code with friends</li>
+            <li><strong>Join Room</strong> - Enter a room code to play with a specific friend</li>
+        </ul>
+
+        <h3>Offline Play</h3>
+        <ul>
+            <li><strong>vs Computer</strong> - Challenge AI with Easy, Medium, or Hard difficulty</li>
+            <li><strong>Local Multiplayer</strong> - Pass the device to play with a friend on the same screen</li>
+        </ul>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">← Back to Game</a>
+        </div>
+    </div>
+</body>
+</html>
