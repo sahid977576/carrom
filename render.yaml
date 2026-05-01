@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: carrom-pool-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        value: https://your-username.github.io
+
+  - type: static
+    name: carrom-pool-client
+    buildCommand: echo "Static site"
+    staticPublishPath: ./client
+    routes:
+      - type: rewrite
+        source: /
+        destination: /index.html
